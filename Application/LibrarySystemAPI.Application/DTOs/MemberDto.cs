@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibrarySystemAPI.Application.DTOs.Responses
+namespace LibrarySystemAPI.Application.DTOs
 {
     public class MemberDto
     {
-        public int MemberId { get; set; }
         public string Name { get; set; }
+        public int MemberID { get; set; }
         public string MemberType { get; set; }
         public int BorrowedBooksCount { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public MemberPermission Permissions { get; set; }
+        public bool CanBorrowBooks { get; set; }
+        public bool CanViewBooks { get; set; }
+        public bool CanViewMembers { get; set; }
+        public bool CanManageBooks { get; set; }
     }
-
-
 }

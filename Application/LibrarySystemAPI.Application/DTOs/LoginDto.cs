@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibrarySystemAPI.Application.DTOs.Requests
+namespace LibrarySystemAPI.Application.DTOs
 {
-    public class LoginRequest
+    public class LoginDto
     {
         [Required]
-        public int MemberId { get; set; }
+        public int MemberID { get; set; }
     }
 }

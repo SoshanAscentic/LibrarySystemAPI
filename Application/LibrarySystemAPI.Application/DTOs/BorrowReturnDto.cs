@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace LibrarySystemAPI.Application.DTOs
 {
-    public class BorrowBookRequest
+    public class BorrowReturnDto
     {
         [Required]
+        [StringLength(200, MinimumLength = 1)]
         public string Title { get; set; }
 
-        [Required]
+        [Range(1450, 2024)]
         public int PublicationYear { get; set; }
 
         [Required]
-        [Range(1, int.MaxValue, ErrorMessage = "Member ID must be a positive integer.")]
         public int MemberID { get; set; }
     }
 }

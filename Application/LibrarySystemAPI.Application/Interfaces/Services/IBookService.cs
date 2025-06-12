@@ -1,4 +1,5 @@
-﻿using LibrarySystemAPI.Domain.Entities;
+﻿using LibrarySystemAPI.Application.DTOs;
+using LibrarySystemAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,9 @@ namespace LibrarySystemAPI.Application.Interfaces.Services
 {
     public interface IBookService
     {
-        void AddBook(Book book);
-        void RemoveBook(string title, int publicationYear);
-        void DisplayBooks();
-        Book? GetBook(string title, int publicationYear);
-        IEnumerable<Book> GetAllBooks();
+        BookDto AddBook(CreateBookDto createBookDto);
+        bool RemoveBook(string title, int publicationYear);
+        IEnumerable<BookDto> GetAllBooks();
+        BookDto GetBook(string title, int publicationYear);
     }
 }
