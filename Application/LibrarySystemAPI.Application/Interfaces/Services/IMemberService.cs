@@ -1,4 +1,5 @@
-﻿using LibrarySystemAPI.Domain.Entities.Members;
+﻿using LibrarySystemAPI.Application.DTOs;
+using LibrarySystemAPI.Domain.Entities.Members;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,8 @@ namespace LibrarySystemAPI.Application.Interfaces.Services
 {
     public interface IMemberService
     {
-        Member AddMember(string name, int memberType);
-        void DisplayMembers();
-        Member? GetMemberById(int memberId);
-        IEnumerable<Member> GetAllMembers();
+        MemberDto AddMember(CreateMemberDto createMemberDto);
+        IEnumerable<MemberDto> GetAllMembers();
+        MemberDto GetMemberById(int memberId);
     }
 }

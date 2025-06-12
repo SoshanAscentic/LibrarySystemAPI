@@ -1,4 +1,5 @@
-﻿using LibrarySystemAPI.Domain.Entities.Members;
+﻿using LibrarySystemAPI.Application.DTOs;
+using LibrarySystemAPI.Domain.Entities.Members;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace LibrarySystemAPI.Application.Interfaces.Services
 {
     public interface IAuthenticationService
     {
-        Member? Login();
-        Member? SignUp();
+        MemberDto Login(LoginDto loginDto);
+        MemberDto SignUp(CreateMemberDto createMemberDto);
     }
 }
