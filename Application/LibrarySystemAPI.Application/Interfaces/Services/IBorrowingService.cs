@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibrarySystemAPI.Application.Interfaces.Services
 {
-    internal interface IBorrowingService
+    public interface IBorrowingService
     {
+        void BorrowBook(string title, int publicationYear, int memberId);
+        void ReturnBook(string title, int publicationYear, int memberId);
     }
 }
