@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibrarySystemAPI.Domain.Entities.Members;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace LibrarySystemAPI.Domain.Entities.Staff
 {
     public abstract class Staff : Member
     {
+        protected Staff() { }
         protected Staff(string name, int memberId) : base(name, memberId) { }
 
         public override bool CanManageBooks() => true;

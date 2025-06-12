@@ -10,5 +10,6 @@ namespace LibrarySystemAPI.Domain.Entities.Staff
     {
         public ManagementStaff(string name, int memberId) : base(name, memberId) { }
         public override string GetMemberType() => "Management Staff";
+        public override bool CanBorrowBooks() => true;
     }
 }
