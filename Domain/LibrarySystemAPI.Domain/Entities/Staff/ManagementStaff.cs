@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibrarySystemAPI.Domain.Entities.Staff
 {
-    internal class ManagementStaff
+    public class ManagementStaff : Staff
     {
+        public ManagementStaff(string name, int memberId) : base(name, memberId) { }
+        public override string GetMemberType() => "Management Staff";
     }
 }
