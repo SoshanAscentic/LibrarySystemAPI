@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LibrarySystemAPI.Application.DTOs;
 using LibrarySystemAPI.Application.Interfaces;
+using LibrarySystemAPI.Data.Repositories;
 using LibrarySystemAPI.Domain.Entities.Members;
 using System;
 using System.Collections.Generic;

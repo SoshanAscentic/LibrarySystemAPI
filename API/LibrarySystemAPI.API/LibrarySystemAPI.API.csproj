@@ -8,10 +8,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="9.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Application\LibrarySystemAPI.Application\LibrarySystemAPI.Application.csproj" />
+    <ProjectReference Include="..\..\Data\LibrarySystemAPI.Data\LibrarySystemAPI.Data.csproj" />
   </ItemGroup>
 
 </Project>
