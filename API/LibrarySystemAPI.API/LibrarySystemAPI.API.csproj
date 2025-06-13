@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Application\LibrarySystemAPI.Application\LibrarySystemAPI.Application.csproj" />
+    <ProjectReference Include="..\..\Data\LibrarySystemAPI.Data\LibrarySystemAPI.Data.csproj" />
   </ItemGroup>
 
 </Project>
