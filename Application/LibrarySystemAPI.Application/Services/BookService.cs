@@ -27,7 +27,6 @@ namespace LibrarySystemAPI.Application.Services
             if (createBookDto == null)
                 throw new ArgumentNullException(nameof(createBookDto));
 
-            // Check if book already exists
             var existingBook = bookRepository.GetByTitleAndYear(createBookDto.Title, createBookDto.PublicationYear);
             if (existingBook != null)
                 throw new InvalidOperationException("A book with the same title and publication year already exists.");
@@ -48,7 +47,6 @@ namespace LibrarySystemAPI.Application.Services
             if (book == null)
                 return false;
 
-            // Check if book is currently borrowed
             if (!book.IsAvailable)
                 throw new InvalidOperationException("Cannot remove a book that is currently borrowed.");
 

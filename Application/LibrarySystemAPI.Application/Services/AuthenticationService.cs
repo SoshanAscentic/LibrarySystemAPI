@@ -37,7 +37,7 @@ namespace LibrarySystemAPI.Application.Services
 
             var member = memberRepository.GetById(loginDto.MemberID);
             if (member == null)
-                return null; // Member not found - let controller handle the response
+                return null;
 
             return mapper.Map<MemberDto>(member);
         }
