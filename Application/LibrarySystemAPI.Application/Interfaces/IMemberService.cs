@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibrarySystemAPI.Application.Interfaces.Services
+namespace LibrarySystemAPI.Application.Interfaces
 {
     public interface IMemberService
     {

@@ -1,4 +1,6 @@
-﻿using LibrarySystemAPI.Application.Interfaces.Services;
+﻿using AutoMapper;
+using LibrarySystemAPI.Application.DTOs;
+using LibrarySystemAPI.Application.Interfaces;
 using LibrarySystemAPI.Domain.Entities.Members;
 using System;
 using System.Collections.Generic;
@@ -10,65 +12,44 @@ namespace LibrarySystemAPI.Application.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-
         private readonly IMemberService memberService;
+        private readonly IMemberRepository memberRepository;
+        private readonly IMapper mapper;
 
-        public AuthenticationService(IMemberService memberService, IConsoleService consoleService)
+        public AuthenticationService(
+            IMemberService memberService,
+            IMemberRepository memberRepository,
+            IMapper mapper)
         {
             this.memberService = memberService ?? throw new ArgumentNullException(nameof(memberService));
-            this.consoleService = consoleService ?? throw new ArgumentNullException(nameof(consoleService));
+            this.memberRepository = memberRepository ?? throw new ArgumentNullException(nameof(memberRepository));
+            this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public Member? Login()
+        public MemberDto Login(LoginDto loginDto)
         {
-            consoleService.WriteLine("Enter your Member ID: ");
-            string? memberIdStr = consoleService.ReadLine();
+            if (loginDto == null)
+                throw new ArgumentNullException(nameof(loginDto));
 
-            if (!int.TryParse(memberIdStr, out int enteredId))
-            {
-                consoleService.WriteLine("Invalid input.");
-                return null;
-            }
+            if (loginDto.MemberID <= 0)
+                throw new ArgumentException("Member ID must be positive.", nameof(loginDto.MemberID));
 
-            var existingMember = memberService.GetMemberById(enteredId);
-            if (existingMember != null)
-            {
-                consoleService.WriteLine($"Welcome back, {existingMember.Name}!");
-                return existingMember;
-            }
-            else
-            {
-                consoleService.WriteLine("Member not found. Please sign up first.");
-                return null;
-            }
+            var member = memberRepository.GetById(loginDto.MemberID);
+            if (member == null)
+                return null; // Member not found - let controller handle the response
+
+            return mapper.Map<MemberDto>(member);
         }
 
-        public Member? SignUp()
+        public MemberDto SignUp(CreateMemberDto createMemberDto)
         {
-            consoleService.WriteLine("Enter your name: ");
-            string? name = consoleService.ReadLine();
+            if (createMemberDto == null)
+                throw new ArgumentNullException(nameof(createMemberDto));
 
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                consoleService.WriteLine("Name cannot be empty.");
-                return null;
-            }
+            // Additional validation can be added here if needed
+            // For example, checking if name already exists, etc.
 
-            consoleService.WriteLine("Select member type:");
-            consoleService.WriteLine("0 - Member");
-            consoleService.WriteLine("1 - Minor Staff");
-            consoleService.WriteLine("2 - Management Staff");
-
-            string? typeInputStr = consoleService.ReadLine();
-            if (!int.TryParse(typeInputStr, out int typeInput) || typeInput < 0 || typeInput > 2)
-            {
-                consoleService.WriteLine("Invalid member type.");
-                return null;
-            }
-
-            Member newMember = memberService.AddMember(name, typeInput);
-            consoleService.WriteLine($"Successfully signed up! Your Member ID is: {newMember.MemberID}");
-            return newMember;
+            return memberService.AddMember(createMemberDto);
         }
     }
 }
