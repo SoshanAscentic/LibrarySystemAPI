@@ -47,9 +47,6 @@ namespace LibrarySystemAPI.Application.Services
             if (createMemberDto == null)
                 throw new ArgumentNullException(nameof(createMemberDto));
 
-            // Additional validation can be added here if needed
-            // For example, checking if name already exists, etc.
-
             return memberService.AddMember(createMemberDto);
         }
     }

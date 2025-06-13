@@ -12,5 +12,7 @@ namespace LibrarySystemAPI.Data.InMemoryStorage
     {
         public List<Book> Books { get; set; } = new List<Book>();
         public List<Member> Members { get; set; } = new List<Member>();
+        public int NextMemberId { get; set; } = 1;
+
     }
 }

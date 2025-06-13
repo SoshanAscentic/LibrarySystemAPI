@@ -13,10 +13,8 @@ namespace LibrarySystemAPI.Application.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            // Register AutoMapper with the mapping profile
             services.AddAutoMapper(typeof(Mapping.MappingProfile));
 
-            // Register application services
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IMemberService, MemberService>();
             services.AddScoped<IBorrowingService, BorrowingService>();

@@ -25,11 +25,6 @@ namespace LibrarySystemAPI.Application.Mapping
                 .ForMember(dest => dest.CanViewBooks, opt => opt.MapFrom(src => src.CanViewBooks()))
                 .ForMember(dest => dest.CanViewMembers, opt => opt.MapFrom(src => src.CanViewMembers()))
                 .ForMember(dest => dest.CanManageBooks, opt => opt.MapFrom(src => src.CanManageBooks()));
-
-            // You can add reverse mappings if needed
-            // CreateMap<CreateBookDto, Book>()
-            //     .ForMember(dest => dest.Category, opt => opt.MapFrom(src => (Book.BookCategory)src.Category))
-            //     .ForMember(dest => dest.IsAvailable, opt => opt.MapFrom(src => true));
         }
     }
 }

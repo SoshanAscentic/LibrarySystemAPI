@@ -11,7 +11,6 @@ namespace LibrarySystemAPI.Data.Repositories
     public class MemberRepository : IMemberRepository
     {
         private readonly DataStorage dataStorage;
-        private int nextMemberId = 1;
 
         public MemberRepository(DataStorage dataStorage)
         {
@@ -36,7 +35,7 @@ namespace LibrarySystemAPI.Data.Repositories
 
         public int GetNextMemberId()
         {
-            return nextMemberId++;
+            return dataStorage.NextMemberId++;
         }
     }
 }

@@ -13,10 +13,8 @@ namespace LibrarySystemAPI.Data.Extensions
     {
         public static IServiceCollection AddDataServices(this IServiceCollection services)
         {
-            // Register data storage as singleton to maintain state
             services.AddSingleton<DataStorage>();
 
-            // Register repositories
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IMemberRepository, MemberRepository>();
 

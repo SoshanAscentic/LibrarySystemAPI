@@ -75,7 +75,6 @@ namespace LibrarySystemAPI.Application.Services
             if (member.BorrowedBooksCount <= 0)
                 throw new InvalidOperationException("Member has no borrowed books to return.");
 
-            // Update book and member state
             book.IsAvailable = true;
             member.BorrowedBooksCount--;
 
