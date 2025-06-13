@@ -25,7 +25,7 @@ namespace LibrarySystemAPI.API.Controllers
                 var members = memberService.GetAllMembers();
                 return Ok(members);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An error occurred while retrieving members.");
             }

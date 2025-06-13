@@ -16,9 +16,6 @@ namespace LibrarySystemAPI.API.Controllers
             this.bookService = bookService ?? throw new ArgumentNullException(nameof(bookService));
         }
 
-        /**/
-
-
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<BookDto>), StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<BookDto>> GetAllBooks()
@@ -28,7 +25,7 @@ namespace LibrarySystemAPI.API.Controllers
                 var books = bookService.GetAllBooks();
                 return Ok(books);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An error occurred while retrieving books.");
             }
@@ -58,7 +55,7 @@ namespace LibrarySystemAPI.API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An error occurred while retrieving the book.");
             }
@@ -86,7 +83,7 @@ namespace LibrarySystemAPI.API.Controllers
             {
                 return Conflict(ex.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An error occurred while adding the book.");
             }
@@ -120,7 +117,7 @@ namespace LibrarySystemAPI.API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An error occurred while removing the book.");
             }

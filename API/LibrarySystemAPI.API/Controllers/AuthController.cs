@@ -35,7 +35,7 @@ namespace LibrarySystemAPI.API.Controllers
                     return NotFound("Member not found. please sign up first");
                 return Ok(member);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An error occured during login");
             }
@@ -60,7 +60,7 @@ namespace LibrarySystemAPI.API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An error occurred during signup.");
             }
