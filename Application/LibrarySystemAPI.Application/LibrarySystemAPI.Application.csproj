@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\LibrarySystemAPI.Data\LibrarySystemAPI.Data.csproj" />
+    <ProjectReference Include="..\..\Domain\LibrarySystemAPI.Domain\LibrarySystemAPI.Domain.csproj" />
   </ItemGroup>
 
 </Project>
