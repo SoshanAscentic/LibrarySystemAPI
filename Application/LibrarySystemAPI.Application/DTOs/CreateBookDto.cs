@@ -11,11 +11,11 @@ namespace LibrarySystemAPI.Application.DTOs
     {
         [Required]
         [StringLength(200, MinimumLength = 1)]
-        public string Title { get; set; }
+        public string ? Title { get; set; }
 
         [Required]
         [StringLength(100, MinimumLength = 1)]
-        public string Author { get; set; }
+        public string ? Author { get; set; }
 
         [Range(1450, 2024)]
         public int PublicationYear { get; set; }

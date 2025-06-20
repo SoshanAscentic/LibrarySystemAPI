@@ -8,9 +8,9 @@ namespace LibrarySystemAPI.Application.DTOs
 {
     public class MemberDto
     {
-        public string Name { get; set; }
+        public string ? Name { get; set; }
         public int MemberID { get; set; }
-        public string MemberType { get; set; }
+        public string ? MemberType { get; set; }
         public int BorrowedBooksCount { get; set; }
         public bool CanBorrowBooks { get; set; }
         public bool CanViewBooks { get; set; }
